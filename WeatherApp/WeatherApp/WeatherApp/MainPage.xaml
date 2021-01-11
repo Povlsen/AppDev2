@@ -3,22 +3,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+    
+    <ContentPage.Resources>
+        <StyleSheet Source="/style.css" />
+    </ContentPage.Resources>
+
+    <StackLayout class="container">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" class="header">
+                <Label class="text-light, text-big" Text="Copenhagen, Denmark" />
+                <Label class="text-light, text-small" Text="Netop Nu" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" class="body">
+                <Image class="image-main" Source="rain_white.png" />
+                <Label class="text-light, text-bigger" Text="6º"/>
+                <Label class="text-light, text-big" Text="Regn"/>
+
+                <StackLayout class="wind-container">
+                    <Label class="text-light, text-medium" Text="Vind"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Image class="image-wind" Source="wind_white.png" />
+                        <Label class="text-light, text-small" Text="4m/s" />
+                    </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" class="footer">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"  />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" class="tabel, text-light, text-medium" Text="Tir,12,jan" />
+                    <Image Grid.Row="0" Grid.Column="1" class="tabel, tabel, image-tabel" Source="cloud_white.png" />
+                    <Label Grid.Row="0" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
+
+                    <Label Grid.Row="1" Grid.Column="0" class="tabel, text-light, text-medium" Text="Ons,13,jan" />
+                    <Image Grid.Row="1" Grid.Column="1" class="tabel, image-tabel" Source="rain_white.png" />
+                    <Label Grid.Row="1" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
+
+                    <Label Grid.Row="2" Grid.Column="0" class="tabel, text-light, text-medium" Text="Tor,14,jan" />
+                    <Image Grid.Row="2" Grid.Column="1" class="tabel, image-tabel" Source="sun_white.png" />
+                    <Label Grid.Row="2" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
+
+                    <Label Grid.Row="3" Grid.Column="0" class="tabel, text-light, text-medium" Text="Fre,15,jan" />
+                    <Image Grid.Row="3" Grid.Column="1" class="tabel, image-tabel" Source="snow_white.png" />
+                    <Label Grid.Row="3" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
+                </Grid>
+            </StackLayout>
+
+        </Grid>
     </StackLayout>
 
 </ContentPage>

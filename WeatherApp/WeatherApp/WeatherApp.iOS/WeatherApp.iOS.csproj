@@ -70,7 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -129,8 +128,23 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\WeatherApp\WeatherApp.csproj">
-      <Project>{11AE169B-9755-45F4-8066-BAFD034AE70D}</Project>
+      <Project>{320E7ACA-866F-49F2-ABCD-3B951C6DE865}</Project>
       <Name>WeatherApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloud_black.png" />
+    <BundleResource Include="Resources\cloud_white.png" />
+    <BundleResource Include="Resources\rain_black.png" />
+    <BundleResource Include="Resources\rain_white.png" />
+    <BundleResource Include="Resources\snow_black.png" />
+    <BundleResource Include="Resources\snow_white.png" />
+    <BundleResource Include="Resources\sun_black.png" />
+    <BundleResource Include="Resources\sun_white.png" />
+    <BundleResource Include="Resources\wind_black.png" />
+    <BundleResource Include="Resources\wind_white.png" />
   </ItemGroup>
 </Project>
