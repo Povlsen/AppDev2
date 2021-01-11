@@ -13,6 +13,15 @@ namespace WeatherApp
         public MainPage()
         {
             InitializeComponent();
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                //iOS stuff
+            }
+            else if (Device.RuntimePlatform == Device.Android)
+            {
+
+            }
         }
     }
 }

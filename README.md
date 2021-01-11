@@ -1,1 +1,1 @@
-# AppDev2
+Emil Neirup Jensen og Nikolai Risgaard Thorup Povlsen - Weather App - AppDev2
