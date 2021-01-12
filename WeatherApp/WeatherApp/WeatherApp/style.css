@@ -1,4 +1,12 @@
-﻿.container-dark {
+﻿.dark {
+    background-color: #2D353F;
+}
+
+.light {
+    background-color: #E4EAF1;
+}
+
+.container-dark {
     background-color: #2D353F;
     padding-top: 70;
 }

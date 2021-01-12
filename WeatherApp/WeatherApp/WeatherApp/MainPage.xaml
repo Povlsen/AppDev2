@@ -8,7 +8,8 @@
         <StyleSheet Source="/style.css" />
     </ContentPage.Resources>
 
-    <StackLayout class="container-dark, container-vertical">
+    <StackLayout class="dark">
+        <StackLayout class="container-dark, container-vertical" x:Name="containerVertical">
         <Grid>
 
             <Grid.RowDefinitions>
@@ -75,8 +76,7 @@
         </Grid>
     </StackLayout>
     
-    <!--
-    <StackLayout class="container-dark, container-horizontal">
+    <StackLayout class="container-dark, container-horizontal" x:Name="containerHorizontal">
         <Grid>
 
             <Grid.ColumnDefinitions>
@@ -157,5 +157,6 @@
 
         </Grid>
     </StackLayout>
-    -->
+    </StackLayout>
+
 </ContentPage>
