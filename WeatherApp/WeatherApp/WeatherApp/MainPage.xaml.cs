@@ -31,6 +31,9 @@ namespace WeatherApp
                 if (location != null)
                 {
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+                    var key = "05eae1fa34e3bc6757059b9dd6c38636";
+                    var url = String.Format("http://api.openweathermap.org/data/2.5/forecast/daily?lat={0}&lon={1}&cnt=3&appid={2}", location.Latitude, location.Longitude, key);
+                    var res = RestService.GetData<object>(url);
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
