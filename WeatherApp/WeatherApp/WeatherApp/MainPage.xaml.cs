@@ -61,5 +61,35 @@ namespace WeatherApp
                 cts.Cancel();
             base.OnDisappearing();
         }
+
+
+        private double width;
+        private double height;
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (width != this.width || height != this.height)
+            {
+                this.width = width;
+                this.height = height;
+
+                // landscape
+                if (width > height)
+                {
+                    containerVertical.IsVisible = false;
+                    containerHorizontal.IsVisible = true;
+                }
+                else
+                // portrait
+                {
+                    containerVertical.IsVisible = true;
+                    containerHorizontal.IsVisible = false;
+                }
+
+            }
+
+        }
     }
 }
