@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherApp.App">
     <Application.Resources>
-
+        <OnPlatform x:TypeArguments="x:String" x:Key="NormalFont">
+            <On Platform="Android" Value="Monaco.ttf#Monaco" />
+            <On Platform="iOS" Value="Monaco" />
+        </OnPlatform>
     </Application.Resources>
 </Application>

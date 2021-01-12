@@ -36,5 +36,9 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Vi skal bruge location for at bestemme din placering</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Monaco.ttf</string>
+	</array>
 </dict>
 </plist>

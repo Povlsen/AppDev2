@@ -16,6 +16,7 @@
 .text-light {
     color: #E4EAF1;
     text-align: center;
+    font-family: Monaco;
 }
 
 .text-big {
@@ -28,7 +29,6 @@
 
 .text-bigger {
     font-size: 78;
-    font-style: bold;
 }
 
 .text-medium {

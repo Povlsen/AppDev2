@@ -146,5 +146,6 @@
     <BundleResource Include="Resources\sun_white.png" />
     <BundleResource Include="Resources\wind_black.png" />
     <BundleResource Include="Resources\wind_white.png" />
+    <BundleResource Include="Resources\Monaco.ttf" />
   </ItemGroup>
 </Project>
