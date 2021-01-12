@@ -8,7 +8,7 @@
         <StyleSheet Source="/style.css" />
     </ContentPage.Resources>
 
-    <StackLayout class="container">
+    <StackLayout class="container-dark">
         <Grid>
 
             <Grid.RowDefinitions>

@@ -1,5 +1,10 @@
-﻿.container {
+﻿.container-dark {
     background-color: #2D353F;
+    padding-top: 70;
+}
+
+.container-light {
+    background-color: #E4EAF1;
     padding-top: 70;
 }
 
@@ -23,6 +28,7 @@
 
 .text-bigger {
     font-size: 78;
+    font-style: bold;
 }
 
 .text-medium {
@@ -40,7 +46,6 @@
 
 .image-tabel {
     height: 30;
-    margin-top: -5;
 }
 
 .wind-container {
@@ -48,11 +53,11 @@
 }
 
 .body {
-    margin-top: -60;
+    margin-top: -75;
 }
 
 .footer {
-    margin-top: 20;
+    margin-top: 10;
     margin-bottom: 10;
 }
 
