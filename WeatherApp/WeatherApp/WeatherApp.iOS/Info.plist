@@ -35,6 +35,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Fordi jeg siger det</string>
+	<string>Vi skal bruge location for at bestemme din placering</string>
 </dict>
 </plist>
