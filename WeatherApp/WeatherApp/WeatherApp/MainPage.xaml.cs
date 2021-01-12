@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -15,12 +16,12 @@ namespace WeatherApp
         public MainPage()
         {
             InitializeComponent();
-            getLocation();
+            GetLocation();
         }
 
         CancellationTokenSource cts;
 
-        async Task getLocation()
+        async Task GetLocation()
         {
             try
             {
@@ -32,8 +33,8 @@ namespace WeatherApp
                 {
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                     var key = "05eae1fa34e3bc6757059b9dd6c38636";
-                    var url = String.Format("http://api.openweathermap.org/data/2.5/forecast/daily?lat={0}&lon={1}&cnt=3&appid={2}", location.Latitude, location.Longitude, key);
-                    var res = RestService.GetData<object>(url);
+                    var url = String.Format("https://api.openweathermap.org/data/2.5/onecall?lat={0}&lon={1}&units=metric&appid={2}", location.Latitude, location.Longitude, key);
+                    var res = RestService.GetData<WeatherData>(url);
                 }
             }
             catch (FeatureNotSupportedException fnsEx)

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary
 {
-    public class Root
+    public class WeatherData
     {
         public double lat { get; set; }
         public double lon { get; set; }
