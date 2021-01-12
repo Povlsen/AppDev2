@@ -11,6 +11,7 @@
 .text-dark {
     color: #2D353F;
     text-align: center;
+    font-family: Monaco;
 }
 
 .text-light {
@@ -29,6 +30,7 @@
 
 .text-bigger {
     font-size: 78;
+    margin-top: 15;
 }
 
 .text-medium {
@@ -63,4 +65,21 @@
 
 .tabel {
     margin-top: 20;
+}
+
+.header-horizontal {
+    margin-top: -20;
+    padding-bottom: 20;
+}
+
+.status {
+    margin: 15,20,0,0;
+}
+
+.wind-horizontal {
+    margin-top: 20;
+}
+
+.image-main-horizontal {
+    height: 70;
 }
