@@ -136,16 +136,25 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\cloud_black.png" />
-    <BundleResource Include="Resources\cloud_white.png" />
-    <BundleResource Include="Resources\rain_black.png" />
-    <BundleResource Include="Resources\rain_white.png" />
-    <BundleResource Include="Resources\snow_black.png" />
-    <BundleResource Include="Resources\snow_white.png" />
-    <BundleResource Include="Resources\sun_black.png" />
-    <BundleResource Include="Resources\sun_white.png" />
+    <BundleResource Include="Resources\img_01d.png" />
+    <BundleResource Include="Resources\img_01n.png" />
+    <BundleResource Include="Resources\img_02d.png" />
+    <BundleResource Include="Resources\img_02n.png" />
+    <BundleResource Include="Resources\img_03d.png" />
+    <BundleResource Include="Resources\img_03n.png" />
+    <BundleResource Include="Resources\img_04d.png" />
+    <BundleResource Include="Resources\img_04n.png" />
+    <BundleResource Include="Resources\img_09d.png" />
+    <BundleResource Include="Resources\img_09n.png" />
+    <BundleResource Include="Resources\img_10d.png" />
+    <BundleResource Include="Resources\img_10n.png" />
+    <BundleResource Include="Resources\img_11d.png" />
+    <BundleResource Include="Resources\img_11n.png" />
+    <BundleResource Include="Resources\img_13d.png" />
+    <BundleResource Include="Resources\img_13n.png" />
+    <BundleResource Include="Resources\img_50d.png" />
+    <BundleResource Include="Resources\img_50n.png" />
     <BundleResource Include="Resources\wind_black.png" />
     <BundleResource Include="Resources\wind_white.png" />
-    <BundleResource Include="Resources\Monaco.ttf" />
   </ItemGroup>
 </Project>
