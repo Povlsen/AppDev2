@@ -131,6 +131,10 @@
       <Project>{320E7ACA-866F-49F2-ABCD-3B951C6DE865}</Project>
       <Name>WeatherApp</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{9D63D0ED-199C-4BDD-9983-941CF337FB13}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
