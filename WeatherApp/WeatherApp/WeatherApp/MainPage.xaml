@@ -11,8 +11,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout class="dark">
-        <StackLayout class="container-dark, container-vertical" x:Name="containerVertical">
+    <StackLayout class="light">
+        <StackLayout class="container-light, container-vertical" x:Name="containerVertical">
             <Grid>
                 <Grid.RowDefinitions>
 
@@ -22,21 +22,21 @@
                 </Grid.RowDefinitions>
 
                 <StackLayout Grid.Row="0" class="header">
-                    <Label x:Name="verticalTown" class="text-light, text-big" Text="City, Country" />
-                    <Label class="text-light, text-small" Text="Now" />
+                    <Label x:Name="verticalTown" class="text-dark, text-big" Text="City, Country" />
+                    <Label class="text-dark, text-small" Text="Now" />
                 </StackLayout>
 
                 <StackLayout Grid.Row="1" class="body" BindingContext="{Binding Path=Current}">
                     <Image class="image-main" Source="{Binding Path=Weather[0].Icon, StringFormat='img_{0}.png'}" />
-                    <Label class="text-light, text-bigger" Text="{Binding Path=Temp, StringFormat='{0:F0}°'}"/>
-                    <Label class="text-light, text-big" Text="{Binding Path=Weather[0].Description, Converter={StaticResource firstLetterUppercase}}"/>
+                    <Label class="text-dark, text-bigger" Text="{Binding Path=Temp, StringFormat='{0:F0}°'}"/>
+                    <Label class="text-dark, text-big" Text="{Binding Path=Weather[0].Description, Converter={StaticResource firstLetterUppercase}}"/>
 
                     <StackLayout class="wind-container">
-                        <Label class="text-light, text-medium" Text="Wind"/>
+                        <Label class="text-dark, text-medium" Text="Wind"/>
 
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                             <Image class="image-wind" Source="wind_white.png" />
-                            <Label class="text-light, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
+                            <Label class="text-dark, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
                         </StackLayout>
                     </StackLayout>
 
@@ -58,9 +58,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Row="0" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[1].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="0" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[1].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="0" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[1].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="0" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="0" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[1].Temp.Min" />
@@ -69,9 +69,9 @@
                             </Label.Text>
                         </Label>
 
-                        <Label Grid.Row="1" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[2].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="1" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[2].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="1" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[2].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="1" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="1" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[2].Temp.Min" />
@@ -80,9 +80,9 @@
                             </Label.Text>
                         </Label>
 
-                        <Label Grid.Row="2" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[3].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="2" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[3].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="2" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[3].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="2" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="2" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[3].Temp.Min" />
@@ -91,9 +91,9 @@
                             </Label.Text>
                         </Label>
 
-                        <Label Grid.Row="3" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[4].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="3" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[4].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="3" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[4].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="3" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="3" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[4].Temp.Min" />
@@ -121,8 +121,8 @@
                 </Grid.RowDefinitions>
 
                 <StackLayout class="header-horizontal" Grid.Row="0" Grid.Column="0">
-                    <Label x:Name="horizontalTown" class="text-light, text-big" Text="City, Country" />
-                    <Label class="text-light, text-small" Text="Now" />
+                    <Label x:Name="horizontalTown" class="text-dark, text-big" Text="City, Country" />
+                    <Label class="text-dark, text-small" Text="Now" />
                 </StackLayout>
 
                 <StackLayout Grid.Row="1" Grid.Column="0" class="weather-now">
@@ -135,16 +135,16 @@
 
                         <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                             <Image class="image-main, image-main-horizontal" Source="{Binding Path=Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                            <Label class="text-light, text-big" Text="{Binding Path=Current.Weather[0].Description, Converter={StaticResource firstLetterUppercase}}"/>
+                            <Label class="text-dark, text-big" Text="{Binding Path=Current.Weather[0].Description, Converter={StaticResource firstLetterUppercase}}"/>
                         </StackLayout>
 
                         <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Label class="text-light, text-bigger" Text="{Binding Path=Current.Temp, StringFormat='{0:F0}°'}"/>
+                            <Label class="text-dark, text-bigger" Text="{Binding Path=Current.Temp, StringFormat='{0:F0}°'}"/>
                             <StackLayout class="wind-container, wind-horizontal">
-                                <Label class="text-light, text-medium" Text="Wind"/>
+                                <Label class="text-dark, text-medium" Text="Wind"/>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Image class="image-wind" Source="wind_white.png" />
-                                    <Label class="text-light, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
+                                    <Label class="text-dark, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
@@ -168,9 +168,9 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Row="0" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[1].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="0" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[1].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="0" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[1].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="0" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="0" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[1].Temp.Min" />
@@ -179,9 +179,9 @@
                             </Label.Text>
                         </Label>
 
-                        <Label Grid.Row="1" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[2].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="1" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[2].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="1" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[2].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="1" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="1" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[2].Temp.Min" />
@@ -190,9 +190,9 @@
                             </Label.Text>
                         </Label>
 
-                        <Label Grid.Row="2" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[3].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="2" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[3].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="2" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[3].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="2" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="2" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[3].Temp.Min" />
@@ -201,9 +201,9 @@
                             </Label.Text>
                         </Label>
 
-                        <Label Grid.Row="3" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[4].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Label Grid.Row="3" Grid.Column="0" class="tabel, text-dark, text-medium" Text="{Binding Path=Daily[4].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
                         <Image Grid.Row="3" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Daily[4].Weather[0].Icon, StringFormat='img_{0}.png'}"/>
-                        <Label Grid.Row="3" Grid.Column="2" class="tabel, text-light, text-medium">
+                        <Label Grid.Row="3" Grid.Column="2" class="tabel, text-dark, text-medium">
                             <Label.Text>
                                 <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
                                     <Binding Path="Daily[4].Temp.Min" />
