@@ -1,16 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace ClassLibrary
 {
-    public class Temp
+    public class Temp 
     {
-        public double day { get; set; }
-        public double min { get; set; }
-        public double max { get; set; }
-        public double night { get; set; }
-        public double eve { get; set; }
-        public double morn { get; set; }
+        [JsonProperty("day")]
+        public double Day { get; set; } 
+
+        [JsonProperty("min")]
+        public double Min { get; set; } 
+
+        [JsonProperty("max")]
+        public double Max { get; set; } 
+
+        [JsonProperty("night")]
+        public double Night { get; set; } 
+
+        [JsonProperty("eve")]
+        public double Eve { get; set; } 
+
+        [JsonProperty("morn")]
+        public double Morn { get; set; } 
     }
 }

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Newtonsoft.Json;
+using System;
 
 namespace ClassLibrary
 {
     public class Minutely
     {
-        public int dt { get; set; }
-        public int precipitation { get; set; }
+        [JsonProperty("dt")]
+        [JsonConverter(typeof(UTCDateTimeConverter))]
+        public DateTime DateTime { get; set; }
+
+        [JsonProperty("precipitation")]
+        public double Precipitation { get; set; } 
     }
 }

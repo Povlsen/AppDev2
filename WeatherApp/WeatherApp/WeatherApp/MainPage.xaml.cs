@@ -13,21 +13,15 @@ namespace WeatherApp
 {
     public partial class MainPage : ContentPage
     {
-        public string cityName;
-        public WeatherData weatherData;
+        CancellationTokenSource cts;
+
         public MainPage()
         {
             InitializeComponent();
-            var temp = GetLocation();
-            temp.Wait();
-            weatherData = temp.Result;
-            BindingContext = weatherData;
-
+            GetLocation();
         }
 
-        CancellationTokenSource cts;
-
-        async Task<WeatherData> GetLocation()
+        async void GetLocation()
         {
             try
             {
@@ -48,14 +42,15 @@ namespace WeatherApp
                     //city
                     var placemarks = await Geocoding.GetPlacemarksAsync(lati, longi);
                     var placemark = placemarks?.FirstOrDefault();
-                    cityName = String.Format("{0}, {1}", placemark.Locality, placemark.CountryName);
+                    var cityName = String.Format("{0}, {1}", placemark.Locality, placemark.CountryName);
                     horizontalTown.Text = cityName;
                     verticalTown.Text = cityName;
 
                     // Weather
                     var key = "05eae1fa34e3bc6757059b9dd6c38636";
-                    var url = String.Format("https://api.openweathermap.org/data/2.5/onecall?lat={0}&lon={1}&lang=da&units=metric&appid={2}", lati, longi, key);
-                    return await RestService.GetData<WeatherData>(url);
+                    var url = String.Format("https://api.openweathermap.org/data/2.5/onecall?lat={0}&lon={1}&units=metric&appid={2}", lati, longi, key);
+                    var weatherData = await RestService.GetData<WeatherForeCast>(url);
+                    BindingContext = weatherData;
                 }
             }
             catch (FeatureNotSupportedException fnsEx)
@@ -74,8 +69,6 @@ namespace WeatherApp
             {
                 // Unable to get location
             }
-
-            return null;
         }
 
         protected override void OnDisappearing()

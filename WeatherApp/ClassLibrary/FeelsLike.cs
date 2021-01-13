@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Newtonsoft.Json;
 
 namespace ClassLibrary
 {
     public class FeelsLike
     {
-        public double day { get; set; }
-        public double night { get; set; }
-        public double eve { get; set; }
-        public double morn { get; set; }
+        [JsonProperty("morn")]
+        public double Morn { get; set; } 
+
+        [JsonProperty("day")]
+        public double Day { get; set; } 
+
+        [JsonProperty("eve")]
+        public double Eve { get; set; } 
+
+        [JsonProperty("night")]
+        public double Night { get; set; } 
     }
 }

@@ -1,162 +1,219 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:WeatherApp"
              x:Class="WeatherApp.MainPage">
 
-    
+
     <ContentPage.Resources>
         <StyleSheet Source="/style.css" />
+        <ResourceDictionary>
+            <local:FirstLetterUppercase x:Key="firstLetterUppercase" />
+        </ResourceDictionary>
     </ContentPage.Resources>
 
     <StackLayout class="dark">
         <StackLayout class="container-dark, container-vertical" x:Name="containerVertical">
-        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <StackLayout Grid.Row="0" class="header">
-                <Label x:Name="verticalTown" class="text-light, text-big" Text="Copenhagen, Denmark" />
-                <Label class="text-light, text-small" Text="Netop Nu" />
-            </StackLayout>
-
-            <StackLayout Grid.Row="1" class="body">
-                <Image class="image-main" Source="rain_white.png" />
-                <Label class="text-light, text-bigger" Text="{Binding temp, Mode=TwoWay}"/>
-                <Label class="text-light, text-big" Text="Regn"/>
-
-                <StackLayout class="wind-container">
-                    <Label class="text-light, text-medium" Text="Vind"/>
-
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Image class="image-wind" Source="wind_white.png" />
-                        <Label class="text-light, text-small" Text="4m/s" />
-                    </StackLayout>
+                <StackLayout Grid.Row="0" class="header">
+                    <Label x:Name="verticalTown" class="text-light, text-big" Text="City, Country" />
+                    <Label class="text-light, text-small" Text="Now" />
                 </StackLayout>
 
-            </StackLayout>
+                <StackLayout Grid.Row="1" class="body" BindingContext="{Binding Path=Current}">
+                    <Image class="image-main" Source="{Binding Path=Weather[0].Icon, StringFormat='img_{0}.png'}" />
+                    <Label class="text-light, text-bigger" Text="{Binding Path=Temp, StringFormat='{0:F0}°'}"/>
+                    <Label class="text-light, text-big" Text="{Binding Path=Weather[0].Description, Converter={StaticResource firstLetterUppercase}}"/>
 
-            <StackLayout Grid.Row="2" class="footer">
-                <Grid>
+                    <StackLayout class="wind-container">
+                        <Label class="text-light, text-medium" Text="Wind"/>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"  />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Label Grid.Row="0" Grid.Column="0" class="tabel, text-light, text-medium" Text="Tir,12,jan" />
-                    <Image Grid.Row="0" Grid.Column="1" class="tabel, image-tabel" Source="cloud_white.png" />
-                    <Label Grid.Row="0" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
-
-                    <Label Grid.Row="1" Grid.Column="0" class="tabel, text-light, text-medium" Text="Ons,13,jan" />
-                    <Image Grid.Row="1" Grid.Column="1" class="tabel, image-tabel" Source="rain_white.png" />
-                    <Label Grid.Row="1" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
-
-                    <Label Grid.Row="2" Grid.Column="0" class="tabel, text-light, text-medium" Text="Tor,14,jan" />
-                    <Image Grid.Row="2" Grid.Column="1" class="tabel, image-tabel" Source="sun_white.png" />
-                    <Label Grid.Row="2" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
-
-                    <Label Grid.Row="3" Grid.Column="0" class="tabel, text-light, text-medium" Text="Fre,15,jan" />
-                    <Image Grid.Row="3" Grid.Column="1" class="tabel, image-tabel" Source="snow_white.png" />
-                    <Label Grid.Row="3" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
-                </Grid>
-            </StackLayout>
-
-        </Grid>
-    </StackLayout>
-    
-    <StackLayout class="container-dark, container-horizontal" x:Name="containerHorizontal">
-        <Grid>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="20" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-
-            <StackLayout class="header-horizontal" Grid.Row="0" Grid.Column="0">
-               <Label x:Name="horizontalTown" class="text-light, text-big" Text="Copenhagen, Denmark" />
-               <Label class="text-light, text-small" Text="Netop Nu" />
-            </StackLayout>
-
-            <StackLayout Grid.Row="1" Grid.Column="0" class="weather-now">
-                <Grid>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-
-                    <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Image class="image-main, image-main-horizontal" Source="rain_white.png" />
-                        <Label class="text-light, text-big, status" Text="Regn"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label class="text-light, text-bigger" Text="6º"/>
-                        <StackLayout class="wind-container, wind-horizontal">
-                            <Label class="text-light, text-medium" Text="Vind"/>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                <Image class="image-wind" Source="wind_white.png" />
-                                <Label class="text-light, text-small" Text="4m/s" />
-                            </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Image class="image-wind" Source="wind_white.png" />
+                            <Label class="text-light, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
                         </StackLayout>
                     </StackLayout>
 
-                </Grid>
-            </StackLayout>
+                </StackLayout>
 
-            <StackLayout Grid.Row="1" Grid.Column="1" class="weather-next">
-                 <Grid>
+                <StackLayout Grid.Row="2" class="footer">
+                    <Grid>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"  />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"  />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                    <Label Grid.Row="0" Grid.Column="0" class="tabel, text-light, text-medium" Text="Tir,12,jan" />
-                    <Image Grid.Row="0" Grid.Column="1" class="tabel, image-tabel" Source="cloud_white.png" />
-                    <Label Grid.Row="0" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
+                        <Label Grid.Row="0" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[1].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="0" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[1].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="0" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[1].Temp.Min" />
+                                    <Binding Path="Daily[1].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
 
-                    <Label Grid.Row="1" Grid.Column="0" class="tabel, text-light, text-medium" Text="Ons,13,jan" />
-                    <Image Grid.Row="1" Grid.Column="1" class="tabel, image-tabel" Source="rain_white.png" />
-                    <Label Grid.Row="1" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
+                        <Label Grid.Row="1" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[2].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="1" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[2].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="1" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[2].Temp.Min" />
+                                    <Binding Path="Daily[2].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
 
-                    <Label Grid.Row="2" Grid.Column="0" class="tabel, text-light, text-medium" Text="Tor,14,jan" />
-                    <Image Grid.Row="2" Grid.Column="1" class="tabel, image-tabel" Source="sun_white.png" />
-                    <Label Grid.Row="2" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
+                        <Label Grid.Row="2" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[3].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="2" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[3].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="2" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[3].Temp.Min" />
+                                    <Binding Path="Daily[3].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
 
-                    <Label Grid.Row="3" Grid.Column="0" class="tabel, text-light, text-medium" Text="Fre,15,jan" />
-                    <Image Grid.Row="3" Grid.Column="1" class="tabel, image-tabel" Source="snow_white.png" />
-                    <Label Grid.Row="3" Grid.Column="2" class="tabel, text-light, text-medium" Text="5º/-2º" />
-                </Grid>
-            </StackLayout>
+                        <Label Grid.Row="3" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[4].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="3" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[4].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="3" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[4].Temp.Min" />
+                                    <Binding Path="Daily[4].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+                    </Grid>
+                </StackLayout>
 
-        </Grid>
+            </Grid>
+        </StackLayout>
+
+        <StackLayout class="container-dark, container-horizontal" x:Name="containerHorizontal">
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout class="header-horizontal" Grid.Row="0" Grid.Column="0">
+                    <Label x:Name="horizontalTown" class="text-light, text-big" Text="City, Country" />
+                    <Label class="text-light, text-small" Text="Now" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Grid.Column="0" class="weather-now">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image class="image-main, image-main-horizontal" Source="{Binding Path=Weather[0].Icon, StringFormat='img_{0}.png'}"/>
+                            <Label class="text-light, text-big" Text="{Binding Path=Weather[0].Description, Converter={StaticResource firstLetterUppercase}}"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label class="text-light, text-bigger" Text="{Binding Path=Current.Temp, StringFormat='{0:F0}°'}"/>
+                            <StackLayout class="wind-container, wind-horizontal">
+                                <Label class="text-light, text-medium" Text="Wind"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Image class="image-wind" Source="wind_white.png" />
+                                    <Label class="text-light, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Grid.Column="1" class="weather-next">
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"  />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[1].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="0" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[1].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="0" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[1].Temp.Min" />
+                                    <Binding Path="Daily[1].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+
+                        <Label Grid.Row="1" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[2].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="1" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[2].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="1" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[2].Temp.Min" />
+                                    <Binding Path="Daily[2].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+
+                        <Label Grid.Row="2" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[3].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="2" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[3].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="2" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[3].Temp.Min" />
+                                    <Binding Path="Daily[3].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+
+                        <Label Grid.Row="3" Grid.Column="0" class="tabel, text-light, text-medium" Text="{Binding Path=Daily[4].DateTime, StringFormat='{0:ddd, dd MMM}'}" />
+                        <Image Grid.Row="3" Grid.Column="1" class="tabel, image-tabel" Source="{Binding Path=Weather[4].Icon, StringFormat='img_{0}.png'}"/>
+                        <Label Grid.Row="3" Grid.Column="2" class="tabel, text-light, text-medium">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0:F0}° / {1:F0}°">
+                                    <Binding Path="Daily[4].Temp.Min" />
+                                    <Binding Path="Daily[4].Temp.Max" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
     </StackLayout>
-    </StackLayout>
-
 </ContentPage>
