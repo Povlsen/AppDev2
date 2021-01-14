@@ -134,7 +134,7 @@
                         </Grid.RowDefinitions>
 
                         <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                            <Image class="image-main, image-main-horizontal" Source="{Binding Path=Weather[0].Icon, StringFormat='img_{0}.png'}"/>
+                            <Image class="image-main, image-main-horizontal" Source="{Binding Path=Current.Weather[0].Icon, StringFormat='img_{0}.png'}"/>
                             <Label class="text-dark, text-big" Text="{Binding Path=Current.Weather[0].Description, Converter={StaticResource firstLetterUppercase}}"/>
                         </StackLayout>
 
@@ -144,7 +144,7 @@
                                 <Label class="text-dark, text-medium" Text="Wind"/>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                     <Image class="image-wind" Source="wind_black.png" />
-                                    <Label class="text-dark, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
+                                    <Label class="text-dark, text-small" Text="{Binding Path=Current.WindSpeed, StringFormat='{0}m/s'}" />
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
