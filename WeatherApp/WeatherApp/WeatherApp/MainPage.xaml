@@ -107,7 +107,7 @@
             </Grid>
         </StackLayout>
 
-        <StackLayout class="container-dark, container-horizontal" x:Name="containerHorizontal">
+        <StackLayout class="container-light, container-horizontal" x:Name="containerHorizontal">
             <Grid>
 
                 <Grid.ColumnDefinitions>
