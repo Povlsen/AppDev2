@@ -143,7 +143,7 @@
                             <StackLayout class="wind-container, wind-horizontal">
                                 <Label class="text-dark, text-medium" Text="Wind"/>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                    <Image class="image-wind" Source="wind_white.png" />
+                                    <Image class="image-wind" Source="wind_black.png" />
                                     <Label class="text-dark, text-small" Text="{Binding Path=WindSpeed, StringFormat='{0}m/s'}" />
                                 </StackLayout>
                             </StackLayout>
