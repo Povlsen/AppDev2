@@ -58,6 +58,10 @@
     height: 30;
 }
 
+.image-tabel-first {
+    margin-top: -10;
+}
+
 .wind-container {
     padding: 20;
 }
