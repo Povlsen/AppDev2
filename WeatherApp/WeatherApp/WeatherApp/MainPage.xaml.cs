@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using CoreLocation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
